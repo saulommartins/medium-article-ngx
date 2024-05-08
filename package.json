@@ -2,7 +2,19 @@
   "name": ".",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:api": "nx serve api",
+    "start:frontend": "nx serve frontend",
+    "start": "concurrently \"npm run start:api\" \"npm run start:frontend\"",
+    "dev:api": "nx serve api",
+    "dev:frontend": "nx serve frontend",
+    "dev": "npm run dev:api & npm run dev:frontend",
+    "build:api": "nx build api",
+    "build:frontend": "nx build frontend",
+    "build": "npm run build:api && npm run build:frontend",
+    "lint": "nx lint --all",
+    "format": "nx format:write --all"
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -31,6 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "babel-jest": "^29.4.1",
+    "concurrently": "^8.2.2",
     "esbuild": "^0.19.2",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
